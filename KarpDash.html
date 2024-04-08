@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TextiKarp - Homepage</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to TextiKarp</h1>
+        
+        <!-- Replace "KarpChoice.jpg" with the path to your initial game image file -->
+        <img src="KarpChoice.jpg" alt="KarpChoice" usemap="#KarpChoice">
+
+        <map name="KarpChoice">
+            <!-- Define clickable areas using <area> elements -->
+            <!-- Area 1: Link to exit the game -->
+            <area shape="rect" coords="200,200,300,300" href="KarpExit.html" alt="Exit Game">
+            <!-- Area 2: Link to change the image -->
+            <area shape="rect" coords="600,250,500,300" href="KarpLevelMap.html" alt="Change Image">
+        </map>
+    </div>
+</body>
+</html>
