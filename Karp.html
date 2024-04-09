@@ -86,9 +86,19 @@
         <div class="login-form">
             <!-- Update the action attribute to point to KarpDash.html -->
             <form id="loginForm" action="KarpDash.html" method="post">
-                <input type="text" name="username" placeholder="Username" required>
-                <input type="password" name="password" placeholder="Password" required>
+                <input type="text" id="username" name="username" placeholder="Username" required>
+                <input type="password" id="password" name="password" placeholder="Password" required>
                 <input type="submit" value="Login">
+            </form>
+        </div>
+
+        <!-- Add the sign-up form -->
+        <div class="login-form">
+            <h2>Sign Up</h2>
+            <form id="signupForm">
+                <input type="text" id="newUsername" name="newUsername" placeholder="New Username" required>
+                <input type="password" id="newPassword" name="newPassword" placeholder="New Password" required>
+                <input type="submit" value="Sign Up">
             </form>
         </div>
         
@@ -117,6 +127,20 @@
 
             localStorage.setItem('username', username);
             localStorage.setItem('password', password);
+        });
+
+        // Add event listener for sign-up form submission
+        document.getElementById('signupForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+            var newUsername = document.getElementById('newUsername').value;
+            var newPassword = document.getElementById('newPassword').value;
+
+            // Save new username and password to localStorage
+            localStorage.setItem('username', newUsername);
+            localStorage.setItem('password', newPassword);
+
+            // Clear the sign-up form
+            document.getElementById('signupForm').reset();
         });
     </script>
 </body>
