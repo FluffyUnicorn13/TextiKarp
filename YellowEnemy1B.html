@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Battle Page</title>
+    <style>
+        /* Add your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        .enemy-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .button-container button {
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .life-bar {
+            width: 300px;
+            height: 20px;
+            background-color: #ddd;
+            border-radius: 5px;
+            margin: 0 auto 20px;
+        }
+
+        .user-life {
+            width: 100%;
+            height: 100%;
+            background-color: #007bff;
+            border-radius: 5px;
+        }
+
+        .enemy-life {
+            width: 100%;
+            height: 100%;
+            background-color: #dc3545;
+            border-radius: 5px;
+        }
+
+        .hit-counter {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Battle Page</h1>
+        
+        <img class="enemy-img" src="assets/SandFishBattle.jpg" alt="Enemy">
+
+        <div class="button-container">
+            <button id="runButton"><a href="KarpDash.html">RUN!</a></button>
+            <button id="attackButton">ATTACK!</button>
+        </div>
+
+        <div class="life-bar">
+            <div id="userLife" class="user-life"></div>
+        </div>
+        <div class="life-bar">
+            <div id="enemyLife" class="enemy-life"></div>
+        </div>
+
+        <div id="hitCounter" class="hit-counter">Hits: 0</div>
+    </div>
+
+    <script>
+        var userLife = 100;
+        var enemyLife = 100;
+        var hitCount = 0;
+
+        // Function to update life bars
+        function updateLifeBars() {
+            document.getElementById('userLife').style.width = userLife + '%';
+            document.getElementById('enemyLife').style.width = enemyLife + '%';
+        }
+
+        // Function to handle attack
+        function attack() {
+            // Randomly decide if user lands the hit
+            var userHit = Math.random() < 0.5;
+
+            if (userHit) {
+                enemyLife -= 33; // Enemy loses 1/3 of its life
+                hitCount++;
+            }
+
+            // Enemy attacks back randomly
+            var enemyHit = Math.random() < 0.5;
+
+            if (enemyHit) {
+                userLife -= 5; // User loses 5 points
+            }
+
+            updateLifeBars();
+            document.getElementById('hitCounter').textContent = 'Hits: ' + hitCount;
+
+            // Check if someone wins
+            if (userLife <= 0) {
+                window.location.href = 'YellowEnemyDefeat.html'; // Redirect to lose page
+            } else if (enemyLife <= 0) {
+                window.location.href = 'YellowEnemyVictory.html'; // Redirect to win page
+            }
+        }
+
+        // Attack button click event
+        document.getElementById('attackButton').addEventListener('click', attack);
+    </script>
+</body>
+</html>
