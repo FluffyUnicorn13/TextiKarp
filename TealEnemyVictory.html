@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lose Screen</title>
+    <title>Win Screen</title>
     <style>
         /* Add your CSS styles here */
         body {
@@ -29,7 +28,7 @@
             margin-bottom: 20px;
         }
 
-        .enemy-img {
+        .victory-img {
             max-width: 100%;
             height: auto;
             border-radius: 10px;
@@ -54,20 +53,18 @@
         }
     </style>
 </head>
-
 <body>
     <div class="container">
-        <h1>You Lose!</h1>
-
-        <img class="enemy-img" src="assets/Player1Defeat.jpg" alt="Enemy">
-
-        <p class="description">Have you ever been so shocked??</p>
+        <h1>Congratulations!</h1>
+        
+        <img class="victory-img" src="assets/WinningGame.jpg" alt="Victory">
+        
+        <p class="description">You defeated the enemy and rescued your friend! Well done!</p>
 
         <div class="button-container">
-            <button><a href="PondOneMain.html">Try Again</a></button>
-            <button><a href="KarpLevelMap.html">Leave</a></button>
+            <button><a href="KarpExit.html">Leave</a></button>
+            <button><a href="KarpLevelMap.html">Continue</a></button>
         </div>
     </div>
 </body>
-
 </html>
