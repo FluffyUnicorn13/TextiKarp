@@ -114,15 +114,15 @@
             var userHit = Math.random() < 0.5;
 
             if (userHit) {
-                enemyLife -= 25; // Enemy loses 1/3 of its life
+                enemyLife -= 25; 
                 hitCount++;
             }
 
-            // Enemy attacks back randomly
+            
             var enemyHit = Math.random() < 0.5;
 
             if (enemyHit) {
-                userLife -= 5; // User loses 5 points
+                userLife -= 5; 
             }
 
             updateLifeBars();
@@ -130,13 +130,13 @@
 
             // Check if someone wins
             if (userLife <= 0) {
-                window.location.href = 'YellowEnemyDefeat.html'; // Redirect to lose page
+                window.location.href = 'YellowEnemyDefeat.html'; 
             } else if (enemyLife <= 0) {
-                window.location.href = 'YellowEnemyVictory.html'; // Redirect to win page
+                window.location.href = 'YellowEnemyVictory.html'; 
             }
         }
 
-        // Attack button click event
+
         document.getElementById('attackButton').addEventListener('click', attack);
     </script>
 </body>
